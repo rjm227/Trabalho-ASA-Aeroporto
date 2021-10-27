@@ -1,0 +1,55 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "flask-airport"
+  labels:
+    app: "flask-airport"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "flask-airport"
+  template:
+    metadata:
+      labels:
+        app: "flask-airport"
+    spec:
+      containers: 
+      - name: "flask-airport"
+        image: "rjm227/airport"
+        volumeMounts:
+        - name: "flask-airport-sqlite"
+          mountPath: /app/db
+      volumes:
+      - name: "flask-airport-sqlite"
+        persistentVolumeClaim:
+          claimName: "sqlite-airport-pv-claim"
+    
+---
+apiVersion: "v1"
+kind: PersistentVolumeClaim
+metadata:
+  name: sqlite-airport-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "flask-service"
+  labels:
+    app: "flask-airport"
+spec:
+  type: "LoadBalancer"
+  selector:
+    app: "flask-airport"
+  ports:
+  - protocol: "TCP"
+    port: 5000
+    targetPort: 5000
+

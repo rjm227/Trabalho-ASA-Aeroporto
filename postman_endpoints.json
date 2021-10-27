@@ -1,0 +1,200 @@
+{
+    "info": {
+        "_postman_id": "95b765ad-563a-4ffe-a22f-5e8a9e6f4955",
+        "name": "Trabalho Renato Airport",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "{{baseUrl}}/",
+            "id": "99439cfb-6350-4ea5-a72d-698858728687",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/"
+            },
+            "response": []
+        },
+        {
+            "name": "{{baseUrl}}/login",
+            "id": "43e8b2e1-6ec6-4860-9597-83c9d6474dd9",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"login\": \"RenatoJunio\",\r\n    \"password\": \"SenhaRenatoJunio!\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{baseUrl}}/login"
+            },
+            "response": []
+        },
+        {
+            "name": "{{baseUrl}}/logout",
+            "id": "9e1aba41-c76b-45be-a8a3-cbc386eb1d99",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/logout",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "logout"
+                    ],
+                    "query": [
+                        {
+                            "key": "",
+                            "value": null,
+                            "disabled": true
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "{{baseUrl}}/session",
+            "id": "3cd82c2a-5edd-4319-9683-8b34804bdeef",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/session"
+            },
+            "response": []
+        },
+        {
+            "name": "{{baseUrl}}/getAirports",
+            "id": "512199e5-124f-4f80-a3db-722230a413b6",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/getAirports"
+            },
+            "response": []
+        },
+        {
+            "name": "{{baseUrl}}/getAirportsByOrigin",
+            "id": "608163eb-2d57-4d0c-a00d-698630a14be7",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{baseUrl}}/getAirportsByOrigin/1"
+            },
+            "response": []
+        },
+        {
+            "name": "{{baseUrl}}/getFlights",
+            "id": "d600b1d4-a857-4d0c-8769-8ff40da9c13f",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/getFlights?date=25-11-2021",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "getFlights"
+                    ],
+                    "query": [
+                        {
+                            "key": "date",
+                            "value": "25-11-2021"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "{{baseUrl}}/searchFlights",
+            "id": "59c913e5-7994-46cd-8027-e1b3402a6463",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/searchFlights?numberOfPassengers=0",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "searchFlights"
+                    ],
+                    "query": [
+                        {
+                            "key": "originAirportId",
+                            "value": "3830",
+                            "disabled": true
+                        },
+                        {
+                            "key": "numberOfPassengers",
+                            "value": "0"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "{{baseUrl}}/buyReservation",
+            "id": "63aee023-3132-41df-bf49-97fef0a50a92",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"numberOfPassengers\": 13,\r\n    \"flightId\": 3325\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{baseUrl}}/buyReservation"
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": {
+            "token": "DDTCGNj_Ix5hQvLrPS6OtXLajMK2_X76sQZlGfnkgaE"
+        }
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "de5b4c1b-e850-4e89-b78e-120f3eddb842",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "b950ebb7-49e2-49f9-9f21-04138a1569f0",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "db5762be-cea4-484c-a8c5-3849644d2768",
+            "key": "baseUrl",
+            "value": "http://127.0.0.1:5000"
+        }
+    ]
+}
